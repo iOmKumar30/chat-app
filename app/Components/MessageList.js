@@ -13,12 +13,16 @@ export default function MessageList({ messageList, username }) {
           senderUsername={item.username}
           // defiend a type prop
           type={item.type}
+          // defiend a type prop
+          type={item.type}
           content={item.content}
           // imageUrl prop and its corresponding caption prop
           imageUrl={item.imageUrl}
           caption={item.caption}
           // added a timestamp prop
           timestamp={item.timestamp}
+          // added a openImage prop to maximize image in chat on clikcing the image
+          openImage={item.openImage}
           // added a openImage prop to maximize image in chat on clikcing the image
           openImage={item.openImage}
         ></Message>
@@ -48,12 +52,12 @@ function Message({
       className={`relative bg-blue-500 mx-3 w-fit text-wrap animate-[fade_.2s_ease-in-out] p-3 rounded-lg max-w-[70%] ${
         rightAlign === true ? "self-end bg-yellow-500" : ""
       } ${sameAsBefore ? "mt-1" : "mt-3"}`}
-      style={{ minWidth: "150px" }} // minimum width for very short messages so that the timestamp doesn't get parallel to the message content
+      style={{ minWidth: "150px" }} // minimum width for very short messages so that the timestamp doesn't get parallel to the message content 
     >
       <div className="flex gap-2 items-center">
         <span
           className={`font-bold sma:text-sm underline ${
-            rightAlign === true ? "text-blue-700" : "text-yellow-600"
+            rightAlign === true ? "text-blue-700" : "text-stone-1000"
           } ${sameAsBefore ? "hidden" : ""}`}
         >
           {senderUsername}
@@ -82,6 +86,7 @@ function Message({
       {/* added the timestamp in the message box and adjusted the styles for it*/}
       <span
         className={`mt-1 absolute bottom-1 right-2 text-gray-500 text-xs text-opacity-90 ${
+        className={`mt-1 absolute bottom-1 right-2 text-gray-500 text-xs text-opacity-90 ${
           rightAlign ? "text-blue-700" : "text-yellow-600"
         }`}
       >
@@ -90,3 +95,4 @@ function Message({
     </div>
   );
 }
+
